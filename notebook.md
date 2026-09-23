@@ -268,6 +268,10 @@ In the 10-fold cross-validated evaluation across all 33 measured genes on the fu
   - $90\%$ nominal ($\alpha=0.10$): **$89.72\%$** empirical coverage (-0.28% calibration error).
   - $95\%$ nominal ($\alpha=0.05$): **$94.21\%$** empirical coverage (-0.79% calibration error).
 
+![Calibration Curve](report/galaxy_calibration_curve.png)
+
+![Acta2 Prediction Interval Map](report/galaxy_acta2_pi_map.png)
+
 ### 12.5 Stand-Alone Report Artifact
 A publication-quality stand-alone PDF report compiling all methodology, mathematical validations, provenance findings, figures, and Galaxy execution details was compiled and saved to:
 - **Local PDF:** `report/TISSUE_Reproduction_Report.pdf`
