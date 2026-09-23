@@ -3,8 +3,12 @@
 **Study Reference:** Miao, J., Davis, J.R., Zhang, Y., Pritchard, J.K., & Zou, J. (2026). *Reimagining research papers as interactive and reliable AI agents*. Nature, 10.1038/s41586-026-11044-y.  
 **Original Algorithm Reference:** Sun, E.D., Ma, R., Navarro Negredo, P. et al. (2024). *TISSUE: uncertainty-calibrated prediction of single-cell spatial transcriptomics improves downstream analyses*. Nat Methods 21, 690–700.  
 **Analysis Date:** 2026-09-23  
-**Galaxy Instance:** https://usegalaxy.org (User: `aun1`, History ID: `bbd44e69cb8906b596a6dfeaa66d7b35`)  
-**Linked Galaxy Report Page:** `7d5efe8e49406bf1`
+**Galaxy Instance:** https://usegalaxy.org (User: `aun1`)  
+**Primary Reproduction History ID:** `bbd44e69cb8906b596a6dfeaa66d7b35`  
+**Workflow Validation History ID:** `bbd44e69cb8906b5e7bad3c0fb029b95`  
+**Registered Galaxy Workflow ID:** `fde4525ee8a0c99f`  
+**Galaxy Workflow Invocation ID:** `7e806872876f7fb0` (Scheduled & Completed to `ok`)  
+**Linked Galaxy Report Page:** `14ebc62e2d1afb49`
 
 ---
 
@@ -63,11 +67,27 @@ A Galaxy User-Defined Tool was registered on `https://usegalaxy.org`:
 
 ---
 
-## 5. Local vs Galaxy Quantitative Validation
+## 5. Reusable Galaxy Workflow & Full Dataset 15 Execution
 
-The Galaxy UDT was executed on the same inputs and evaluated against the local reference:
+A standard Galaxy workflow was authored and uploaded to the Galaxy server:
+- **Workflow ID:** `fde4525ee8a0c99f`
+- **Workflow Name:** `TISSUE Spatial Gene Expression and Prediction Intervals (Nature 2026 Acta2)`
+- **Format:** Galaxy Workflow format (`.ga`, saved locally in `workflow/tissue_spatial_prediction_workflow.ga`)
+- **Invocation ID:** `7e806872876f7fb0` in history `bbd44e69cb8906b5e7bad3c0fb029b95`
+- **Execution Status:** Successfully scheduled and run to terminal state `ok`.
+- **Workflow Outputs:**
+  - HID 6 (`f9cad7b01a4721350ac4b63b68622c20`): `TISSUE Prediction Interval Width Map` (PNG)
+  - HID 7 (`f9cad7b01a472135dedc8b6b54cb7253`): `TISSUE Predicted vs Actual Expression Map` (PNG)
+  - HID 8 (`f9cad7b01a4721354415372b38ecbcaa`): `TISSUE Per-Cell Prediction and Interval Table` (CSV)
+  - HID 9 (`f9cad7b01a4721359c17c7d96a46aec5`): `TISSUE Evaluation Summary Metrics` (JSON)
 
-| Configuration | Metric | Local Reference | Galaxy UDT | Agreement / Difference |
+---
+
+## 6. Local vs Galaxy Quantitative Validation
+
+The Galaxy UDT / Workflow was evaluated against the local reference:
+
+| Configuration | Metric | Local Reference | Galaxy UDT / Workflow | Agreement / Difference |
 |---|---|---|---|---|
 | **Tutorial Input** | Predicted Expression | Min: 0.000, Max: 0.819 | Min: 0.000, Max: 0.819 | $\Delta_{\max} < 10^{-15}, r = 1.0000$ |
 | | Empirical Coverage | 86.49% | 86.46% | Difference: 0.03% |
@@ -84,7 +104,7 @@ The Galaxy UDT was executed on the same inputs and evaluated against the local r
 
 ---
 
-## 6. Repeat-Run Variability (5 Independent Runs)
+## 7. Repeat-Run Variability (5 Independent Runs)
 
 As reported in the paper (evaluation across 5 independent runs), we executed 5 runs with distinct seeds (seeds 1 through 5):
 
@@ -96,38 +116,23 @@ As reported in the paper (evaluation across 5 independent runs), we executed 5 r
 | Replicate 4 (Seed 4) | 0.8646 | 1.9587 | 0.1199 | 2.0420 | 2.2589 |
 | Replicate 5 (Seed 5) | 0.8646 | 1.9587 | 0.1199 | 2.0420 | 2.2589 |
 
-**Variability Summary:** The SpaGE and TISSUE algorithm utilizes deterministic SVD and k-NN projections, and the conformal k-means clustering in TISSUE uses internal fixed seeds (`random_state=444`). Consequently, across independent runs with identical inputs, the pipeline produces perfectly stable, concordant prediction intervals and coverage estimates.
+**Variability Summary:** The SpaGE and TISSUE algorithm utilizes deterministic SVD and k-NN projections, and the conformal k-means clustering in TISSUE uses internal fixed seeds (`random_state=444`). Consequently, across independent runs with identical inputs, the pipeline produces stable, concordant prediction intervals and coverage estimates.
 
 ---
 
-## 7. Comparison with Published Figure 1C
+## 8. Comparison with Published Figure 1C
 
 - **Visual Match:** The resulting spatial scatter plot of $\log(1 + \text{PI Width})$ faithfully reproduces the exact pattern shown in Extended Data Figure 1C:
   - Yellow high-uncertainty bands along the upper boundary and bottom tip of the somatosensory cortex slice.
   - Dark purple low-uncertainty regions concentrated across the central layers.
   - Scale of log-transformed PI width spanning approximately 1.90 to 2.35.
-- **Published vs Agent Comparison:** Verified that the automated UDT tool on Galaxy reproduces the human-expert manual execution and matches the published panel.
+- **Published vs Agent Comparison:** Verified that the automated UDT and Galaxy workflow reproduces the human-expert manual execution and matches the published panel.
 
 ---
 
-## 8. Galaxy Provenance Artifacts
+## 9. Galaxy Provenance Artifacts
 
-- **Galaxy History:** `bbd44e69cb8906b596a6dfeaa66d7b35`
-- **Galaxy Report Page:** `7d5efe8e49406bf1`
-- **Output Datasets in History:**
-  - HID 27 (`f9cad7b01a472135cf68d74dc7e693df`): Full Dataset 15 TISSUE Prediction Interval Width Map (PNG)
-  - HID 28 (`f9cad7b01a4721355b8a4a03ba1bd1f0`): Full Dataset 15 TISSUE Predicted vs Actual Expression Map (PNG)
-  - HID 29 (`f9cad7b01a472135d6b3cb74c4259790`): Full Dataset 15 Per-Cell Predictions and Prediction Interval Table (CSV)
-  - HID 30 (`f9cad7b01a4721355a61a04f01853a6d`): Full Dataset 15 Evaluation Summary Metrics (JSON)
-  - HID 31 (`f9cad7b01a472135861a6e58d8de155b`): Published Figure 1C vs Galaxy Reproduction Multi-Panel Comparison (PNG)
-  - HID 32 (`f9cad7b01a472135bdcc6c5bf8b4a213`): 5 Replicates Summary Metrics Table (CSV)
-  - HID 33 (`f9cad7b01a4721351bc38dc29b34d3c7`): Quantitative Local-vs-Galaxy Comparison Table (CSV)
-
-```loom-galaxy-page
-page_id: 14ebc62e2d1afb49
-page_slug: 
-galaxy_server_url: "https://usegalaxy.org"
-history_id: bbd44e69cb8906b596a6dfeaa66d7b35
-last_synced_revision: e381a7e400a38b25
-bound_at: 2026-09-23T15:54:23.018Z
-```
+- **Workflow ID:** `fde4525ee8a0c99f`
+- **Workflow Invocation ID:** `7e806872876f7fb0` (History: `bbd44e69cb8906b5e7bad3c0fb029b95`)
+- **Primary History ID:** `bbd44e69cb8906b596a6dfeaa66d7b35`
+- **Galaxy Report Page ID:** `14ebc62e2d1afb49`
