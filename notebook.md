@@ -277,3 +277,12 @@ history_id: bbd44e69cb8906b596a6dfeaa66d7b35
 last_synced_revision: 4a878210746bcb12
 bound_at: 2026-09-23T17:01:37.863Z
 ```
+
+```loom-galaxy-page
+page_id: 787090c6bb87743a
+page_slug: 
+galaxy_server_url: "https://usegalaxy.org"
+history_id: bbd44e69cb8906b5e19946d9d8770575
+last_synced_revision: 67abfe7bdffa108f
+bound_at: 2026-09-23T18:17:59.181Z
+```
