@@ -185,3 +185,11 @@ A full-transcriptome, leak-free 10-fold cross-validated evaluation across all 33
 - **Evaluation History ID:** `bbd44e69cb8906b5e19946d9d8770575`
 - **Galaxy Report Page ID:** `14ebc62e2d1afb49`
 
+```loom-galaxy-page
+page_id: 14ebc62e2d1afb49
+page_slug: 
+galaxy_server_url: "https://usegalaxy.org"
+history_id: bbd44e69cb8906b596a6dfeaa66d7b35
+last_synced_revision: e381a7e400a38b25
+bound_at: 2026-09-23T17:01:37.863Z
+```
