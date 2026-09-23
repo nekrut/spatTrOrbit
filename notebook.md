@@ -130,8 +130,9 @@ As reported in the paper (evaluation across 5 independent runs), we executed 5 r
 - **Published vs Agent Comparison:** Verified that the automated UDT and Galaxy workflow reproduces the human-expert manual execution and matches the published panel.
 
 ```galaxy
-history_dataset_as_image(history_dataset_id="f9cad7b01a472135861a6e58d8de155b")
+history_dataset_as_image(history_dataset_id="f9cad7b01a472135fdecf719ea04d53f")
 ```
+
 
 
 ---
