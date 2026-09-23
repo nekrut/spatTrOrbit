@@ -198,19 +198,14 @@ To accelerate linear algebra operations (SVD/PCA), nearest neighbor graph calcul
 
 - **UDT Version:** `tissue_spatial_prediction` v1.3.0 (UUID: `49a54048-c81b-4f9e-8dc0-7e0f07553889`)
 - **Declared Resource Requirement:**
-  ```yaml
-  requirements:
-    - type: resource
-      cores_min: 4
-      ram_min: 8192
-  ```
+  - `type: resource`
+  - `cores_min: 4`
+  - `ram_min: 8192`
 - **Thread Environment Configuration:**
-  ```bash
-  export OMP_NUM_THREADS=$GALAXY_SLOTS
-  export OPENBLAS_NUM_THREADS=$GALAXY_SLOTS
-  export MKL_NUM_THREADS=$GALAXY_SLOTS
-  export NUMEXPR_NUM_THREADS=$GALAXY_SLOTS
-  ```
+  - `export OMP_NUM_THREADS=$GALAXY_SLOTS`
+  - `export OPENBLAS_NUM_THREADS=$GALAXY_SLOTS`
+  - `export MKL_NUM_THREADS=$GALAXY_SLOTS`
+  - `export NUMEXPR_NUM_THREADS=$GALAXY_SLOTS`
 - **Validation Test on Tutorial Subset:**
   - **History ID:** `bbd44e69cb8906b585d7753c6007d163` (`Test TISSUE UDT with Multi-Core Allocation`)
   - **Allocated Cores:** Confirmed via Galaxy job runner log: `Running TISSUE with GALAXY_SLOTS=4 cores allocated`
