@@ -122,3 +122,12 @@ As reported in the paper (evaluation across 5 independent runs), we executed 5 r
   - HID 31 (`f9cad7b01a472135861a6e58d8de155b`): Published Figure 1C vs Galaxy Reproduction Multi-Panel Comparison (PNG)
   - HID 32 (`f9cad7b01a472135bdcc6c5bf8b4a213`): 5 Replicates Summary Metrics Table (CSV)
   - HID 33 (`f9cad7b01a4721351bc38dc29b34d3c7`): Quantitative Local-vs-Galaxy Comparison Table (CSV)
+
+```loom-galaxy-page
+page_id: 14ebc62e2d1afb49
+page_slug: 
+galaxy_server_url: "https://usegalaxy.org"
+history_id: bbd44e69cb8906b596a6dfeaa66d7b35
+last_synced_revision: e381a7e400a38b25
+bound_at: 2026-09-23T15:54:23.018Z
+```
