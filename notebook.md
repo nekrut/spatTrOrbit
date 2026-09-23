@@ -175,7 +175,39 @@ A full-transcriptome, leak-free 10-fold cross-validated evaluation across all 33
 
 ---
 
-## 10. Galaxy Provenance Artifacts
+## 10. Multi-Core Resource Allocation for TISSUE UDTs
+
+To accelerate linear algebra operations (SVD/PCA), nearest neighbor graph calculations, and cross-validation loops, the TISSUE User-Defined Tools were updated with explicit cluster resource requests and multithreaded runtime configurations:
+
+- **UDT Version:** `tissue_spatial_prediction` v1.3.0 (UUID: `49a54048-c81b-4f9e-8dc0-7e0f07553889`)
+- **Declared Resource Requirement:**
+  ```yaml
+  requirements:
+    - type: resource
+      cores_min: 4
+      ram_min: 8192
+  ```
+- **Thread Environment Configuration:**
+  ```bash
+  export OMP_NUM_THREADS=$GALAXY_SLOTS
+  export OPENBLAS_NUM_THREADS=$GALAXY_SLOTS
+  export MKL_NUM_THREADS=$GALAXY_SLOTS
+  export NUMEXPR_NUM_THREADS=$GALAXY_SLOTS
+  ```
+- **Validation Test on Tutorial Subset:**
+  - **History ID:** `bbd44e69cb8906b585d7753c6007d163` (`Test TISSUE UDT with Multi-Core Allocation`)
+  - **Allocated Cores:** Confirmed via Galaxy job runner log: `Running TISSUE with GALAXY_SLOTS=4 cores allocated`
+  - **Job Execution:** Job `bbd44e69cb8906b5ab778936949fb206` completed to terminal `ok` in ~1 minute 10 seconds.
+  - **Numerical Equivalence:** Output metrics matched single-core execution down to machine precision:
+    - Empirical Coverage: $86.46\%$ (identical)
+    - MAE: $1.9564$ (identical)
+    - Pearson $r$: $0.0861$ (identical)
+    - Mean $\log(1 + \text{PI Width})$: $2.0621$ (identical)
+    - P95 $\log(1 + \text{PI Width})$: $2.3552$ (identical)
+
+---
+
+## 11. Galaxy Provenance Artifacts
 
 - **Workflow ID (Single Target Acta2):** `fde4525ee8a0c99f`
   - Invocation ID: `7e806872876f7fb0` (History: `bbd44e69cb8906b5e7bad3c0fb029b95`)
