@@ -235,12 +235,26 @@ The evaluation encompassed:
 3. **Comprehensive 10-Fold CV:** Full held-out evaluation across all 33 measured spatial genes at nominal coverages of 77%, 80%, 90%, and 95%.
 4. **Cloud Execution & Scaling:** Packaging into native Galaxy User-Defined Tools and workflows on `usegalaxy.org` with multi-core allocation.
 
-### 12.2 Resolution of Paper Provenance
+### 12.2 Direct Side-by-Side Comparison: Published Results vs. Galaxy Reproduction
+
+![Direct Side-by-Side Comparison](report/side_by_side_comparison.png)
+
+```galaxy
+history_dataset_as_image(history_dataset_id="f9cad7b01a472135be44db3f774f1b88")
+```
+
+The panel above provides a clear, side-by-side assessment:
+- **Panel A (Original Published Result):** Extended Data Figure 1C from Miao et al. (*Nature* 2026) showing $\log(1 + \text{PI Width})$ for *Acta2* at $\alpha=0.23$ (77% nominal coverage).
+- **Panel B (Our Reproduction of the Tutorial Benchmark Input):** Executed via Galaxy UDT on the identical 1,000-cell tutorial reference. Exhibits identical spatial uncertainty topology, color scale ([1.90, 2.35]), and conservative empirical coverage ($86.46\%$, MAE $= 1.9564$, $r = 0.0861$).
+- **Panel C (Our Extension to the Full Zenodo Dataset 15):** Executed via Galaxy UDT on the complete 5,613-cell $\times$ 30,528-gene reference. Preserves identical anatomical uncertainty boundaries while tripling the correlation with ground truth ($r = 0.2553$, MAE $= 1.9231$, coverage $= 85.61\%$).
+- **Panel D (Ground Truth Validation):** Direct comparison between measured osmFISH ground truth counts (left) and SpaGE predictions imputed from scRNA-seq (right).
+
+### 12.3 Resolution of Paper Provenance
 A critical scientific finding was established regarding the published figure:
 - **Published Artifact Provenance:** Extended Data Figure 1C was generated from the 1,000-cell tutorial reference rather than the full 5,613-cell dataset. On this reference, predicted *Acta2* expression correlates weakly with measured spatial expression ($r = 0.0861$, MAE $= 1.9564$, empirical coverage $= 86.46\%$), matching the published visual distribution.
 - **Full Reference Enhancement:** Evaluating against the full 5,613-cell scRNA-seq reference improves prediction correlation nearly threefold to $r = 0.2553$ (MAE $= 1.9231$, empirical coverage $= 85.61\%$) while preserving identical anatomical uncertainty bands.
 
-### 12.3 Cross-Environment Numerical Concordance
+### 12.4 Cross-Environment Numerical Concordance
 
 Comparison tolerances were established prior to execution: $\Delta \le 10^{-4}$ for aggregate metrics and $r \ge 0.999$ for spatial arrays.
 
