@@ -232,8 +232,6 @@ The evaluation encompassed:
 
 ### 12.2 Direct Side-by-Side Comparison: Published Results vs. Galaxy Reproduction
 
-![Direct Side-by-Side Comparison](report/side_by_side_comparison.png)
-
 ```galaxy
 history_dataset_as_image(history_dataset_id="f9cad7b01a472135be44db3f774f1b88")
 ```
@@ -268,7 +266,7 @@ Comparison tolerances were established prior to execution: $\Delta \le 10^{-4}$ 
 | | Mean $\log(1 + \text{PI Width})$ | 2.0642 | 2.0651 | $\Delta = 0.0009$ |
 | | P95 $\log(1 + \text{PI Width})$ | 2.7146 | 2.7062 | $\Delta = 0.0084$ |
 
-### 12.4 Conformal Calibration across All 33 Measured Genes
+### 12.5 Conformal Calibration across All 33 Measured Genes
 
 In the 10-fold cross-validated evaluation across all 33 measured genes on the full dataset:
 - **Global Accuracy:** Mean MAE $= 5.1983$, Mean Pearson $r = 0.2726$, Mean Spearman $\rho = 0.1792$.
@@ -278,11 +276,16 @@ In the 10-fold cross-validated evaluation across all 33 measured genes on the fu
   - $90\%$ nominal ($\alpha=0.10$): **$89.72\%$** empirical coverage (-0.28% calibration error).
   - $95\%$ nominal ($\alpha=0.05$): **$94.21\%$** empirical coverage (-0.79% calibration error).
 
-![Calibration Curve](report/galaxy_calibration_curve.png)
+```galaxy
+history_dataset_as_image(history_dataset_id="f9cad7b01a472135f2272a7e2e0c4520")
+```
 
-![Acta2 Prediction Interval Map](report/galaxy_acta2_pi_map.png)
+```galaxy
+history_dataset_as_image(history_dataset_id="f9cad7b01a47213521a3b349a79d89f5")
+```
 
-### 12.5 Stand-Alone Report Artifact
+### 12.6 Stand-Alone Report Artifact
+
 A publication-quality stand-alone PDF report compiling all methodology, mathematical validations, provenance findings, figures, and Galaxy execution details was compiled and saved to:
 - **Local PDF:** `report/TISSUE_Reproduction_Report.pdf`
 - **Markdown Source:** `report/TISSUE_Reproduction_Report.md`
