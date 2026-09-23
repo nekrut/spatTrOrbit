@@ -274,6 +274,6 @@ page_id: 787090c6bb87743a
 page_slug: 
 galaxy_server_url: "https://usegalaxy.org"
 history_id: bbd44e69cb8906b5e19946d9d8770575
-last_synced_revision: 67abfe7bdffa108f
+last_synced_revision: af228f7c61efb831
 bound_at: 2026-09-23T18:18:00.000Z
 ```
