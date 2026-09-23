@@ -292,9 +292,9 @@ A publication-quality stand-alone PDF report compiling all methodology, mathemat
 
 ```loom-galaxy-page
 page_id: 787090c6bb87743a
-page_slug: 
+page_slug: tissue-full-cross-validated-evaluation-dataset-15-all-measured-genes-report
 galaxy_server_url: "https://usegalaxy.org"
 history_id: bbd44e69cb8906b5e19946d9d8770575
-last_synced_revision: 88a7fdfdf310f61b
+last_synced_revision: 4a8065753fc5ab03
 bound_at: 2026-09-23T18:18:00.000Z
 ```
