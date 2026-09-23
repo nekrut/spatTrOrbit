@@ -6,8 +6,9 @@
 **Galaxy Instance:** https://usegalaxy.org (User: `aun1`)  
 **Primary Reproduction History ID:** `bbd44e69cb8906b596a6dfeaa66d7b35`  
 **Workflow Validation History ID:** `bbd44e69cb8906b5e7bad3c0fb029b95`  
-**Registered Galaxy Workflow ID:** `fde4525ee8a0c99f`  
-**Galaxy Workflow Invocation ID:** `7e806872876f7fb0` (Scheduled & Completed to `ok`)  
+**Registered Galaxy Workflow ID:** `fde4525ee8a0c99f` (Single Gene Target: *Acta2*)  
+**Full Evaluation Workflow ID:** `63012fffa29eb7bb` (All 33 Measured Genes Cross-Validation)  
+**Galaxy Workflow Invocation ID:** `7e806872876f7fb0` (Acta2 single run) / `3f9c6f4d6c96b8ef` (All genes full evaluation)  
 **Linked Galaxy Report Page:** `14ebc62e2d1afb49`
 
 ---
@@ -130,9 +131,57 @@ As reported in the paper (evaluation across 5 independent runs), we executed 5 r
 
 ---
 
-## 9. Galaxy Provenance Artifacts
+## 9. Full Dataset 15 Cross-Validated Evaluation across All 33 Measured Genes
 
-- **Workflow ID:** `fde4525ee8a0c99f`
-- **Workflow Invocation ID:** `7e806872876f7fb0` (History: `bbd44e69cb8906b5e7bad3c0fb029b95`)
+A full-transcriptome, leak-free 10-fold cross-validated evaluation across all 33 measured spatial genes was executed on Galaxy using the dedicated User-Defined Tool `tissue_full_evaluation` (UUID `0ce0b774-f5b9-40bc-b006-2d6cab6b939f`, container `quay.io/biocontainers/squidpy:1.5.0`) in history `bbd44e69cb8906b5e19946d9d8770575` via workflow `63012fffa29eb7bb` (Invocation `3f9c6f4d6c96b8ef`):
+
+### 9.1 Evaluation Summary Metrics
+
+- **Spatial Cells:** 3,405
+- **Reference Cells:** 5,613
+- **Measured Genes Evaluated:** 33
+- **CV Scheme:** 10-fold cross-validation, SpaGE ($n_{\text{pv}}=10$), spatial graph ($k=15$, `fixed_radius`), conformal calibration ($k_{\text{gene}}=4, k_{\text{cell}}=2$), `random_seed=444`.
+- **Mean MAE across 33 genes:** 5.1983
+- **Mean Pearson $r$ across 33 genes:** 0.2726
+- **Mean Spearman $\rho$ across 33 genes:** 0.1792
+
+### 9.2 Empirical Calibration Performance across Nominal Levels
+
+| Nominal Coverage | Mean Empirical Coverage (Galaxy Full Run) | Local Benchmark Target | Calibration Error |
+|---|---|---|---|
+| 77.0% ($\alpha = 0.23$) | **79.05%** | 81.33% | +2.05% |
+| 80.0% ($\alpha = 0.20$) | **81.33%** | 84.18% | +1.33% |
+| 90.0% ($\alpha = 0.10$) | **89.72%** | 91.80% | -0.28% |
+| 95.0% ($\alpha = 0.05$) | **94.21%** | 95.89% | -0.79% |
+
+*Acta2* Specific Coverage & Metrics:
+- **MAE:** 1.9273
+- **Pearson $r$:** 0.2845
+- **Spearman $\rho$:** 0.0880
+- **Empirical Coverage ($\alpha=0.23$ / 77% nominal):** **81.03%**
+- **Empirical Coverage ($\alpha=0.20$ / 80% nominal):** **85.99%**
+- **Empirical Coverage ($\alpha=0.10$ / 90% nominal):** **95.54%**
+- **Empirical Coverage ($\alpha=0.05$ / 95% nominal):** **98.36%**
+- **Mean $\log(1 + \text{PI Width})$ ($\alpha=0.23$):** 1.9881
+- **P95 $\log(1 + \text{PI Width})$ ($\alpha=0.23$):** 2.4464
+
+### 9.3 Generated Galaxy Datasets
+
+- **HID 6 (`f9cad7b01a472135be1217803cdc0802`):** `TISSUE Per-Gene Evaluation Metrics` (CSV, 33 genes $\times$ 16 columns)
+- **HID 7 (`f9cad7b01a47213507d51f0504ca5e61`):** `TISSUE Overall Evaluation Summary` (JSON)
+- **HID 8 (`f9cad7b01a472135f2272a7e2e0c4520`):** `TISSUE Calibration Curve across Measured Genes` (PNG)
+- **HID 9 (`f9cad7b01a47213521a3b349a79d89f5`):** `TISSUE Acta2 Prediction Interval Width Map` (PNG)
+- **HID 10 (`f9cad7b01a47213585c3207d80d5805d`):** `TISSUE Per-Cell Per-Gene Prediction and Interval Table` (CSV, 112,365 rows)
+
+---
+
+## 10. Galaxy Provenance Artifacts
+
+- **Workflow ID (Single Target Acta2):** `fde4525ee8a0c99f`
+  - Invocation ID: `7e806872876f7fb0` (History: `bbd44e69cb8906b5e7bad3c0fb029b95`)
+- **Workflow ID (All 33 Genes Evaluation):** `63012fffa29eb7bb`
+  - Invocation ID: `3f9c6f4d6c96b8ef` (History: `bbd44e69cb8906b5e19946d9d8770575`)
 - **Primary History ID:** `bbd44e69cb8906b596a6dfeaa66d7b35`
+- **Evaluation History ID:** `bbd44e69cb8906b5e19946d9d8770575`
 - **Galaxy Report Page ID:** `14ebc62e2d1afb49`
+
