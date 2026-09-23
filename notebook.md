@@ -129,6 +129,11 @@ As reported in the paper (evaluation across 5 independent runs), we executed 5 r
   - Scale of log-transformed PI width spanning approximately 1.90 to 2.35.
 - **Published vs Agent Comparison:** Verified that the automated UDT and Galaxy workflow reproduces the human-expert manual execution and matches the published panel.
 
+```galaxy
+history_dataset_as_image(history_dataset_id="f9cad7b01a472135861a6e58d8de155b")
+```
+
+
 ---
 
 ## 9. Full Dataset 15 Cross-Validated Evaluation across All 33 Measured Genes
@@ -172,6 +177,17 @@ A full-transcriptome, leak-free 10-fold cross-validated evaluation across all 33
 - **HID 8 (`f9cad7b01a472135f2272a7e2e0c4520`):** `TISSUE Calibration Curve across Measured Genes` (PNG)
 - **HID 9 (`f9cad7b01a47213521a3b349a79d89f5`):** `TISSUE Acta2 Prediction Interval Width Map` (PNG)
 - **HID 10 (`f9cad7b01a47213585c3207d80d5805d`):** `TISSUE Per-Cell Per-Gene Prediction and Interval Table` (CSV, 112,365 rows)
+
+#### Empirical Calibration Curve
+```galaxy
+history_dataset_as_image(history_dataset_id="f9cad7b01a472135f2272a7e2e0c4520")
+```
+
+#### Acta2 Prediction Interval Width Map (Full Dataset 15)
+```galaxy
+history_dataset_as_image(history_dataset_id="f9cad7b01a47213521a3b349a79d89f5")
+```
+
 
 ---
 
