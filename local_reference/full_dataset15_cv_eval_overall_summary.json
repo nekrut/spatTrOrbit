@@ -1,0 +1,14 @@
+{
+  "dataset": "Dataset15_osmFISH_Mouse_SC",
+  "n_spatial_cells": 3405,
+  "n_genes_evaluated": 33,
+  "n_reference_cells": 5613,
+  "random_seed": 444,
+  "mean_mae": 5.198261090575641,
+  "mean_pearson_r": 0.27259982923787607,
+  "mean_spearman_rho": 0.17921899088857332,
+  "mean_coverage_77": 0.7911449294709206,
+  "mean_coverage_80": 0.8134205491033685,
+  "mean_coverage_90": 0.8973167801361634,
+  "mean_coverage_95": 0.9417968228540915
+}

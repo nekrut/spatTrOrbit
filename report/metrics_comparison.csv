@@ -1,0 +1,5 @@
+Dataset,Environment,Empirical Coverage,Expected Coverage,MAE,Pearson r,Mean PI Width (log1p),P95 PI Width (log1p)
+Dataset 15 (Tutorial subset),Local Reference,0.8649,0.77,1.9564,0.0861,2.0634,2.3589
+Dataset 15 (Tutorial subset),Galaxy UDT,0.8646,0.77,1.9564,0.0861,2.0621,2.3552
+Full Dataset 15 (Full scRNA),Local Reference,0.8564,0.77,1.9231,0.2553,2.0642,2.7146
+Full Dataset 15 (Full scRNA),Galaxy UDT,0.8561,0.77,1.9231,0.2553,2.0651,2.7062

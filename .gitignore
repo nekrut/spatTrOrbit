@@ -40,3 +40,7 @@ __pycache__/
 # Loom session sidecars
 activity.jsonl
 session.jsonl
+
+# >100MB, exceeds GitHub file limit (gz copy committed)
+data/full_dataset15/scRNA_count.txt
+data/zenodo/DataUploadFinal/Dataset15/scRNA_count.txt

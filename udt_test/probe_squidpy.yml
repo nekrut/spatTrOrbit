@@ -1,0 +1,33 @@
+class: GalaxyUserTool
+id: probe_squidpy_env
+version: "0.1.0"
+name: Probe Squidpy Environment
+description: Test squidpy container environment
+container: quay.io/biocontainers/squidpy:1.5.0
+shell_command: |
+  python3 -c "
+  import sys
+  print('Python:', sys.version)
+  import squidpy as sq
+  print('Squidpy:', sq.__version__)
+  import scanpy as sc
+  print('Scanpy:', sc.__version__)
+  import anndata as ad
+  print('AnnData:', ad.__version__)
+  import sklearn
+  print('Sklearn:', sklearn.__version__)
+  " > probe_squidpy_out.txt
+inputs:
+  - name: dummy_input
+    type: data
+    format: txt
+    label: Dummy input file
+outputs:
+  - name: probe_output
+    type: data
+    format: txt
+    from_work_dir: probe_squidpy_out.txt
+    label: Probe output
+help:
+  format: markdown
+  content: Probes the squidpy container environment.

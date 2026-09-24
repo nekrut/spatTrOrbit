@@ -310,3 +310,11 @@ history_id: bbd44e69cb8906b5e19946d9d8770575
 last_synced_revision: a4c6108bd41688b2
 bound_at: 2026-09-23T18:18:00.000Z
 ```
+
+```loom-session
+id: 01a0ce8e-4b87-70b9-a16d-d21be60f6b71
+started_at: 2026-09-23T13:57:37.182Z
+ended_at: 2026-09-23T21:28:17.676Z
+notebook: notebook.md
+orphaned_active_steps: 0
+```

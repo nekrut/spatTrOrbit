@@ -1,0 +1,25 @@
+class: GalaxyUserTool
+id: probe_python_env
+version: "0.1.0"
+name: Probe Python Environment
+description: Test execution environment and library availability
+container: python:3.11-slim
+shell_command: |
+  python3 -c "
+  import sys
+  print('Python version:', sys.version)
+  " > probe_out.txt
+inputs:
+  - name: dummy_input
+    type: data
+    format: txt
+    label: Dummy input file
+outputs:
+  - name: probe_output
+    type: data
+    format: txt
+    from_work_dir: probe_out.txt
+    label: Probe output
+help:
+  format: markdown
+  content: Probes the basic python:3.11-slim environment.

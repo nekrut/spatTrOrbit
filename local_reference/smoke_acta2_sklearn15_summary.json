@@ -1,0 +1,15 @@
+{
+  "target_gene": "acta2",
+  "prediction_method": "spage",
+  "alpha_level": 0.23,
+  "expected_coverage": 0.77,
+  "empirical_coverage": 0.8649045521292217,
+  "mae": 1.956393850499691,
+  "pearson_r": 0.08611153247893151,
+  "mean_pi_width_log1p": 2.0634464577708775,
+  "min_pi_width_log1p": 1.8856581284422629,
+  "max_pi_width_log1p": 2.441953473572992,
+  "p95_pi_width_log1p": 2.3588806173083996,
+  "num_cells": 3405,
+  "random_seed": 42
+}

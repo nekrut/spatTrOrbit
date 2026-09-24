@@ -1,0 +1,205 @@
+{
+  "a_galaxy_workflow": "true",
+  "format-version": "0.1",
+  "name": "TISSUE Full Cross-Validated Evaluation (Dataset 15 All Measured Genes)",
+  "annotation": "Full cross-validated held-out spatial gene expression prediction and conformal uncertainty interval evaluation across all 33 measured genes on mouse somatosensory cortex with exact full reference normalization.",
+  "tags": [
+    "spatial-transcriptomics",
+    "TISSUE",
+    "calibration",
+    "cross-validation",
+    "Dataset-15"
+  ],
+  "version": 1,
+  "steps": {
+    "0": {
+      "annotation": "Spatial count matrix (Spatial_count.txt)",
+      "content_id": null,
+      "errors": null,
+      "id": 0,
+      "input_connections": {},
+      "inputs": [
+        {
+          "description": "Spatial count matrix",
+          "name": "Spatial counts"
+        }
+      ],
+      "label": "Spatial counts",
+      "name": "Input dataset",
+      "outputs": [],
+      "position": {
+        "left": 10,
+        "top": 10
+      },
+      "tool_id": null,
+      "tool_state": "{\"optional\": false, \"tag\": null}",
+      "tool_version": null,
+      "type": "data_input",
+      "uuid": "e867cc7b-ee29-42d0-b60e-b15d9e1bde15"
+    },
+    "1": {
+      "annotation": "Spatial locations file (Locations.txt)",
+      "content_id": null,
+      "errors": null,
+      "id": 1,
+      "input_connections": {},
+      "inputs": [
+        {
+          "description": "Spatial cell coordinates",
+          "name": "Spatial locations"
+        }
+      ],
+      "label": "Spatial locations",
+      "name": "Input dataset",
+      "outputs": [],
+      "position": {
+        "left": 10,
+        "top": 150
+      },
+      "tool_id": null,
+      "tool_state": "{\"optional\": false, \"tag\": null}",
+      "tool_version": null,
+      "type": "data_input",
+      "uuid": "5280dc9e-ffad-47c4-872d-cf85bb821c2f"
+    },
+    "2": {
+      "annotation": "Full reference scRNA-seq counts (scRNA_count.txt.gz)",
+      "content_id": null,
+      "errors": null,
+      "id": 2,
+      "input_connections": {},
+      "inputs": [
+        {
+          "description": "Reference scRNA-seq counts",
+          "name": "scRNA-seq counts"
+        }
+      ],
+      "label": "scRNA-seq counts",
+      "name": "Input dataset",
+      "outputs": [],
+      "position": {
+        "left": 10,
+        "top": 290
+      },
+      "tool_id": null,
+      "tool_state": "{\"optional\": false, \"tag\": null}",
+      "tool_version": null,
+      "type": "data_input",
+      "uuid": "dfda8a91-fef0-411d-b3a9-2666eb6067dc"
+    },
+    "3": {
+      "annotation": "TISSUE Python package archive (tissue_pkg.tar.gz)",
+      "content_id": null,
+      "errors": null,
+      "id": 3,
+      "input_connections": {},
+      "inputs": [
+        {
+          "description": "TISSUE core library bundle",
+          "name": "TISSUE code package"
+        }
+      ],
+      "label": "TISSUE code package",
+      "name": "Input dataset",
+      "outputs": [],
+      "position": {
+        "left": 10,
+        "top": 430
+      },
+      "tool_id": null,
+      "tool_state": "{\"optional\": false, \"tag\": null}",
+      "tool_version": null,
+      "type": "data_input",
+      "uuid": "14e7f4a1-4bbe-47f2-8e50-35f3423ed5e9"
+    },
+    "4": {
+      "annotation": "Full evaluation runner script (run_full_tissue_evaluation_udt.py)",
+      "content_id": null,
+      "errors": null,
+      "id": 4,
+      "input_connections": {},
+      "inputs": [
+        {
+          "description": "Evaluation runner script",
+          "name": "Evaluation runner script"
+        }
+      ],
+      "label": "Evaluation runner script",
+      "name": "Input dataset",
+      "outputs": [],
+      "position": {
+        "left": 10,
+        "top": 570
+      },
+      "tool_id": null,
+      "tool_state": "{\"optional\": false, \"tag\": null}",
+      "tool_version": null,
+      "type": "data_input",
+      "uuid": "5dd2bb92-ca9d-42b1-881d-c5b185478162"
+    },
+    "5": {
+      "annotation": "Runs full cross-validated SpaGE predictions and TISSUE multi-coverage uncertainty evaluations across all measured genes.",
+      "content_id": "0ce0b774-f5b9-40bc-b006-2d6cab6b939f",
+      "errors": null,
+      "id": 5,
+      "input_connections": {
+        "spatial_counts": {
+          "id": 0,
+          "output_name": "output"
+        },
+        "locations": {
+          "id": 1,
+          "output_name": "output"
+        },
+        "scrna_counts": {
+          "id": 2,
+          "output_name": "output"
+        },
+        "code_bundle": {
+          "id": 3,
+          "output_name": "output"
+        },
+        "wrapper_script": {
+          "id": 4,
+          "output_name": "output"
+        }
+      },
+      "inputs": [],
+      "label": "TISSUE Full Evaluation Tool",
+      "name": "TISSUE Full Cross-Validated Evaluation",
+      "outputs": [
+        {
+          "name": "per_gene_metrics",
+          "type": "csv"
+        },
+        {
+          "name": "overall_summary",
+          "type": "json"
+        },
+        {
+          "name": "calibration_curve",
+          "type": "png"
+        },
+        {
+          "name": "acta2_pi_map",
+          "type": "png"
+        },
+        {
+          "name": "all_genes_per_cell",
+          "type": "csv"
+        }
+      ],
+      "position": {
+        "left": 350,
+        "top": 200
+      },
+      "post_job_actions": {},
+      "tool_id": "0ce0b774-f5b9-40bc-b006-2d6cab6b939f",
+      "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"spatial_counts\": {\"__class__\": \"ConnectedValue\"}, \"locations\": {\"__class__\": \"ConnectedValue\"}, \"scrna_counts\": {\"__class__\": \"ConnectedValue\"}, \"code_bundle\": {\"__class__\": \"ConnectedValue\"}, \"wrapper_script\": {\"__class__\": \"ConnectedValue\"}, \"n_folds\": 10, \"n_pv\": 10, \"seed\": 444}",
+      "tool_version": "1.0.0",
+      "tool_uuid": "0ce0b774-f5b9-40bc-b006-2d6cab6b939f",
+      "type": "tool",
+      "uuid": "820fe769-9083-4a47-9eae-a4447d3e1502"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+[submodule "sources/TISSUE"]
+	path = sources/TISSUE
+	url = https://github.com/sunericd/TISSUE.git
+[submodule "sources/tissue-figures-and-analyses"]
+	path = sources/tissue-figures-and-analyses
+	url = https://github.com/sunericd/tissue-figures-and-analyses.git
+[submodule "sources/tissue_mcp"]
+	path = sources/tissue_mcp
+	url = https://huggingface.co/spaces/Paper2Agent/tissue_mcp
